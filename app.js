@@ -7,6 +7,7 @@ const path = require("path");
 
 // routes
 const recipeRoutes = require("./routes/recipes.routes");
+const userRoutes = require("./routes/user.routes");
 const app = express();
 
 require("./config/app.config").middlewareConfig(app);
@@ -14,6 +15,7 @@ require("./config/app.config").middlewareConfig(app);
 hbs.registerPartials(path.join(__dirname, "views", "partials"));
 
 app.use("/recipes", recipeRoutes);
+app.use("/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.render("home");

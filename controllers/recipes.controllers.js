@@ -1,4 +1,5 @@
 const Recipe = require("../model/recipes.model");
+const User = require("../model/user.model");
 
 async function getRecipes(req, res) {
   const query = req.query;
@@ -9,7 +10,9 @@ async function getRecipes(req, res) {
 async function getRecipeById(req, res) {
   const { recipeId } = req.params;
   const recipe = await Recipe.findById(recipeId);
-  res.render("recipe", recipe);
+  const users = await User.find();
+  const user = users[0];
+  res.render("recipe", { recipe, user });
 }
 
 async function createRecipe(req, res) {

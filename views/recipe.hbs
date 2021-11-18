@@ -1,5 +1,13 @@
 <div>
   <h3>Recipe</h3>
-  <p>{{name}}</p>
-  <p>{{description}}</p>
+  <p>{{recipe.name}}</p>
+  <p>{{recipe.description}}</p>
+</div>
+<div>
+  <h2>Current User</h2>
+  <p>{{user.name}}</p>
+  <form action="/users/{{user._id}}/{{recipe._id}}" method="POST">
+    <button type="submit">Add recipe</button>
+  </form>
+  <a href="/users/{{user._id}}">check user</a>
 </div>
